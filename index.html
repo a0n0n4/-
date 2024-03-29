@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+</head>
+<body>
+    <script>
+        // Get the value of the 'input' parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const inputValue = urlParams.get('input');
+
+        // Define the destination URLs for YouTube, Google, Twitter, and Facebook
+        const redirectUrls = {
+            'youtube': 'https://www.youtube.com',
+            'google': 'https://www.google.com',
+            'twitter': 'https://twitter.com',
+            'facebook': 'https://www.facebook.com'
+            // Add more mappings as needed
+        };
+
+        // Redirect based on the input value
+        if (inputValue && redirectUrls[inputValue]) {
+            window.location.href = redirectUrls[inputValue];
+        } else {
+            // Redirect to Facebook as default if input value is not provided or invalid
+            alert('Invalid input value. Redirecting to Facebook.');
+            window.location.href = 'https://www.facebook.com';
+        }
+    </script>
+</body>
+</html>
